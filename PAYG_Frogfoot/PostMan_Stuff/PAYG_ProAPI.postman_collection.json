@@ -1,0 +1,1390 @@
+{
+	"info": {
+		"_postman_id": "48dbf63f-8480-49d7-a404-0b9879fc7e2f",
+		"name": "PAYG_ProAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "001ContentTypePresent/Not",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5502dd2a-2a69-42bc-822e-54b8ab494193",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27",
+							"disabled": true
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27",
+							"disabled": true
+						},
+						{
+							"key": "emailList",
+							"value": "%27haskarVaraEswara.Ganugula@dfafrica.co.za%27",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27",
+							"disabled": true
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "002ContentTypeValueValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "249da1e8-062b-4c27-ac90-b4ac3b22309a",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});",
+							"pm.test(\"Content-Type is JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27",
+							"disabled": true
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27",
+							"disabled": true
+						},
+						{
+							"key": "emailList",
+							"value": "%27haskarVaraEswara.Ganugula@dfafrica.co.za%27",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27",
+							"disabled": true
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "003AuthKeyWithValidParams",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "84a45a98-7c18-40f3-99fd-3abc65c138ce",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"resultMessage is present in the Response Body\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"resultMessage\");",
+							"});",
+							"pm.test(\"resultMessage is 'successfully processed the batch link usage' in the Response Body\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"successfully processed the batch link usage\");",
+							"});",
+							"pm.test(\"resultCode is 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(0);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1800000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1800000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-09-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-10-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-09-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-10-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "004NoAuthKey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b05037c7-5a6f-42bc-8140-9df955eac4ad",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"pm.test(\"errorCode is 4011\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(4011);",
+							"});",
+							"pm.test(\"errorMessage is Auth Token not found or not authorized: Error - unable to find authorization\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Auth Token not found or not authorized: Error - unable to find authorization\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&emailList=%27haskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27haskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "005InvalidAuthKey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "652c7daa-9a83-49ed-bfbd-e33459905d64",
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"pm.test(\"errorCode is 4012\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(4012);",
+							"});",
+							"pm.test(\"errorMessage is Auth Token cannot be accepted: Auth Token not found\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Auth Token cannot be accepted: Auth Token not found\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4a1212PxNoiq0zkvs6peqQ:11qqqqqss2231",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&emailList=%27haskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27haskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "006ValidationWithAllvalidParams",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "601bd01b-7786-4af4-9e63-1a9c61bb6960",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"resultMessage is successfully processed the batch link usage, and sent report to [BhaskarVaraEswara.Ganugula@dfafrica.co.za\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultMessage).to.eql(\"successfully processed the batch link usage, and sent report to [BhaskarVaraEswara.Ganugula@dfafrica.co.za]\");",
+							"});",
+							"pm.test(\"resultCode is 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(0);",
+							"});",
+							"pm.test(\"Response time is less than 1800000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1800000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId='frogfoot'&startDate='25-10-2019'&emailList='BhaskarVaraEswara.Ganugula@dfafrica.co.za'&endDate='24-11-2019'&productType='GPON'",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "'frogfoot'"
+						},
+						{
+							"key": "startDate",
+							"value": "'25-10-2019'"
+						},
+						{
+							"key": "emailList",
+							"value": "'BhaskarVaraEswara.Ganugula@dfafrica.co.za'"
+						},
+						{
+							"key": "endDate",
+							"value": "'24-11-2019'"
+						},
+						{
+							"key": "productType",
+							"value": "'GPON'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "007ValidationWith2ValidEmails&ValidParams",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "73730905-ff5e-4f9f-996b-620a42fa86e2",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"resultCode is 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(0);",
+							"});",
+							"pm.test(\"resultMessage is successfully processed the batch link usage, and sent report to [BhaskarVaraEswara.Ganugula@dfafrica.co.za,siyabonga.mpangase@dfarica.co.za \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultMessage).to.eql(\"successfully processed the batch link usage, and sent report to [BhaskarVaraEswara.Ganugula@dfafrica.co.za,siyabonga.mpangase@dfarica.co.za]\");",
+							"});",
+							"pm.test(\"Response time is less than 1800000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1800000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId='frogfoot'&startDate='25-10-2019'&emailList='BhaskarVaraEswara.Ganugula@dfafrica.co.za,siyabonga.mpangase@dfarica.co.za'&endDate='24-11-2019'&productType='gpon'",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "'frogfoot'"
+						},
+						{
+							"key": "startDate",
+							"value": "'25-10-2019'"
+						},
+						{
+							"key": "emailList",
+							"value": "'BhaskarVaraEswara.Ganugula@dfafrica.co.za,siyabonga.mpangase@dfarica.co.za'"
+						},
+						{
+							"key": "endDate",
+							"value": "'24-11-2019'"
+						},
+						{
+							"key": "productType",
+							"value": "'gpon'"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "008ValidationWithInvalidClientId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5beacd1-6970-4ab2-ae66-da34111a4e90",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"resultCode is 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(1);",
+							"});",
+							"pm.test(\"errorCode is 400\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(400);",
+							"});",
+							"pm.test(\"errorMessage is 'Invalid ClientId [frogfoo]' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Invalid ClientId [frogfoo]\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoo%27&startDate=%2725-08-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoo%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "009ValidationWithNoClientId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a5beacd1-6970-4ab2-ae66-da34111a4e90",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"errorCode is 40032\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(40032);",
+							"});",
+							"pm.test(\"errorMessage is 'Parameter clientId is required for function processBatchLinkUsage, but no value was provided' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Parameter clientId is required for function processBatchLinkUsage, but no value was provided\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?startDate=%2725-08-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoo%27",
+							"disabled": true
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "010ValidationWithInvalidStartDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07c545c0-95b6-4132-890d-b9b132ce4cb7",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"resultCode is 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(1);",
+							"});",
+							"pm.test(\"errorCode is 400\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(400);",
+							"});",
+							"pm.test(\"errorMessage is Invalid Start date. eg: '25-01-2019' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Invalid Start date. eg: '25-01-2019'\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2724-08-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2724-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "011ValidationWithNoStartDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07c545c0-95b6-4132-890d-b9b132ce4cb7",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"errorCode is 40032\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(40032);",
+							"});",
+							"pm.test(\"errorMessage is 'Parameter startDate is required for function processBatchLinkUsage, but no value was provided' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Parameter startDate is required for function processBatchLinkUsage, but no value was provided\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2724-08-2019%27",
+							"disabled": true
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "012ValidationWithInvalidEmailList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c7aff1f-340c-4e69-897c-cdd1f6cad196",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"resultCode is 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(1);",
+							"});",
+							"pm.test(\"errorCode is 400\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(400);",
+							"});",
+							"pm.test(\"errorMessage is 'Invalid E-mail address List' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Invalid E-mail address List\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&emailList=dfdf&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "dfdf"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "013ValidationWithNoEmailList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c7aff1f-340c-4e69-897c-cdd1f6cad196",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"errorCode is 40032\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(40032);",
+							"});",
+							"pm.test(\"errorMessage is 'Parameter emailList is required for function processBatchLinkUsage, but no value was provided' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Parameter emailList is required for function processBatchLinkUsage, but no value was provided\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&endDate=%2724-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "dfdf",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "014ValidationWithInvalidEndDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e0c2f74-78f1-4d5e-8439-a50a97958d58",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"resultCode is 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(1);",
+							"});",
+							"pm.test(\"errorCode is 400\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(400);",
+							"});",
+							"pm.test(\"errorMessage is Invalid End date. eg: '24-02-2019' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Invalid End date. eg: '24-02-2019'\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2725-09-2019%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2725-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "015ValidationWithNoEndDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e0c2f74-78f1-4d5e-8439-a50a97958d58",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"errorCode is 40032\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(40032);",
+							"});",
+							"pm.test(\"errorMessage is 'Parameter endDate is required for function processBatchLinkUsage, but no value was provided' \", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Parameter endDate is required for function processBatchLinkUsage, but no value was provided\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&productType=%27gpon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2725-09-2019%27",
+							"disabled": true
+						},
+						{
+							"key": "productType",
+							"value": "%27gpon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "016ValidationWithInvalidProdType",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d322f10-6128-4c5c-b361-9221e90ac078",
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"resultCode is 1\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(1);",
+							"});",
+							"pm.test(\"errorCode is 400\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorCode).to.eql(400);",
+							"});",
+							"pm.test(\"errorMessage is Invalid Product Type [pon]\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.errorMessage).to.eql(\"Invalid Product Type [pon]\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27&productType=%27pon%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27pon%27"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "017ValidationWithNoProdType",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d322f10-6128-4c5c-b361-9221e90ac078",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"resultMessage is successfully processed the batch link usage, and sent report to [BhaskarVaraEswara.Ganugula@dfafrica.co.za\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultMessage).to.eql(\"successfully processed the batch link usage, and sent report to [BhaskarVaraEswara.Ganugula@dfafrica.co.za]\");",
+							"});",
+							"pm.test(\"resultCode is 0\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.resultCode).to.eql(0);",
+							"});",
+							"pm.test(\"Response time is less than 1800000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1800000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "CALiveAPICreator oO4aPxNoiq0zkvs6peqQ:1"
+					}
+				],
+				"url": {
+					"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/paygprocessapi/v1/processBatchLinkUsage?clientId=%27frogfoot%27&startDate=%2725-08-2019%27&emailList=%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27&endDate=%2724-09-2019%27",
+					"protocol": "http",
+					"host": [
+						"dfaapicrlab01",
+						"dfa",
+						"local"
+					],
+					"port": "8080",
+					"path": [
+						"APIServer",
+						"rest",
+						"default",
+						"paygprocessapi",
+						"v1",
+						"processBatchLinkUsage"
+					],
+					"query": [
+						{
+							"key": "clientId",
+							"value": "%27frogfoot%27"
+						},
+						{
+							"key": "startDate",
+							"value": "%2725-08-2019%27"
+						},
+						{
+							"key": "emailList",
+							"value": "%27BhaskarVaraEswara.Ganugula@dfafrica.co.za%27"
+						},
+						{
+							"key": "endDate",
+							"value": "%2724-09-2019%27"
+						},
+						{
+							"key": "productType",
+							"value": "%27pon%27",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,571 @@
+{
+	"id": "5ca8363f-062b-49fe-9661-fbde1a53ac7f",
+	"name": "PAYG_UExAPI",
+	"timestamp": "2020-01-08T09:43:45.971Z",
+	"collection_id": "aa076e1d-40e0-4a08-aa20-848e80eb7934",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 48,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "f0fafd7f-94bd-48aa-9152-acb9ad260d7d",
+			"name": "Content-TypePresent/Not",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage",
+			"time": 1521,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Content-Type is present": true,
+				"Status code is 400": true,
+				"Response time is less than 60000": true
+			},
+			"testPassFailCounts": {
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "2bedefeb-1964-4598-86e1-57b579a04627",
+			"name": "Content-TypeValue_Validatioin",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage",
+			"time": 79,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Content-Type is JSON": true,
+				"Status code is 400": true,
+				"Response time is less than 60000ms": true
+			},
+			"testPassFailCounts": {
+				"Content-Type is JSON": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "6d467edb-9d42-458b-9910-c877bc826937",
+			"name": "ValidAPI",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-03-25 00:00:00&endDate= 2019-04-24 23:59:59",
+			"time": 2001,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "ecfbb3e2-5ec8-4298-a1f5-56cce9ebd8bc",
+			"name": "InvalidAPI",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage",
+			"time": 31,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response time is less than 500ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "acb79af9-474b-4f6c-bfc7-b69c7417abed",
+			"name": "NoAPIKey",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage",
+			"time": 31,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response time is less than 500ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 500ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "2562aee6-e2a2-490c-880b-9c806211e32a",
+			"name": "startDateWithValidFormat",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:00&endDate= 2019-11-24 23:59:59",
+			"time": 4073,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"solidId Present": true,
+				"dfaCircuitIdNumber Preset": true,
+				"linkSpeed Present": true,
+				"Response time is less than 60000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"solidId Present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"dfaCircuitIdNumber Preset": {
+					"pass": 1,
+					"fail": 0
+				},
+				"linkSpeed Present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "416bd90c-0db1-494a-874e-3bc7c51d599f",
+			"name": "startDateWithInValidFormat",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 25-10-2019 00:00:00&endDate= 2019-11-24 23:59:59",
+			"time": 32,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 400ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "8bcf8a60-c703-4650-80be-e2fee5b03cb7",
+			"name": "startDateWithout25thDateOfMonth",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-20 00:00:00&endDate= 2019-11-24 23:59:59",
+			"time": 93,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 400ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "69a1dbb6-5002-4222-bef0-e3258f736491",
+			"name": "startDateWithInvaldMidnightTime",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:01&endDate= 2019-11-24 23:59:59",
+			"time": 88,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 400ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "5ddf8806-c0ab-4762-a2e6-f1acd9ac31c3",
+			"name": "endDateWithValidFormat",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:00&endDate= 2019-11-24 23:59:59",
+			"time": 4219,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": true,
+				"Response time is less than 60000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "c1f98e54-ac00-4e29-9762-e1b35f7b3da9",
+			"name": "endDateWithInValidFormat",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:00&endDate= 24-11-2019 23:59:59",
+			"time": 33,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 60000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "fdc79a11-27e2-4a1f-96bf-0e629ef89e67",
+			"name": "endDateWithout24thDateOfMonth",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:00&endDate= 2019-11-25 23:59:59",
+			"time": 92,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 400ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "d2843290-6c60-4e77-9a0c-6b6fac618e28",
+			"name": "endDateWithInvaldMidnightTime",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:00&endDate= 2019-11-24 23:59:58",
+			"time": 93,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 400ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "ff6c3f00-db64-440a-9ed2-e6dc6dc1fed6",
+			"name": "endDateWithEarliestStartDate",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:00&endDate= 2019-11-23 23:59:59",
+			"time": 91,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 400ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "71ecc9da-ac3b-4201-a1f7-6f741a0adcee",
+			"name": "endDateWithLatestStartDate",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-10-25 00:00:00&endDate= 2019-11-26 23:59:59",
+			"time": 97,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 400ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 400ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "42bfc07c-3b36-494c-8661-e4e77bc90bdb",
+			"name": "lastSolidIdFollowUpPagination",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:59&lastSolidId=334378",
+			"time": 396,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 50000ms": true,
+				"endOfRecords should be true": true,
+				"Count: 82": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 50000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"endOfRecords should be true": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Count: 82": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "a39fe69d-4743-42b3-be0d-3d58d66d19af",
+			"name": "successMsgIsTrue",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:59",
+			"time": 4228,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 50000ms": true,
+				"Is success is true": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 50000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Is success is true": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "15ebba03-dbc3-4a6b-aab1-282f9b47bdac",
+			"name": "successMsgIsFalse",
+			"url": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:5",
+			"time": 48,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 50000ms": true,
+				"Is Success false": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 50000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Is Success false": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"count": 1,
+	"collection": {
+		"requests": [
+			{
+				"id": "f0fafd7f-94bd-48aa-9152-acb9ad260d7d",
+				"method": ""
+			},
+			{
+				"id": "2bedefeb-1964-4598-86e1-57b579a04627",
+				"method": ""
+			},
+			{
+				"id": "6d467edb-9d42-458b-9910-c877bc826937",
+				"method": ""
+			},
+			{
+				"id": "ecfbb3e2-5ec8-4298-a1f5-56cce9ebd8bc",
+				"method": ""
+			},
+			{
+				"id": "acb79af9-474b-4f6c-bfc7-b69c7417abed",
+				"method": ""
+			},
+			{
+				"id": "2562aee6-e2a2-490c-880b-9c806211e32a",
+				"method": ""
+			},
+			{
+				"id": "416bd90c-0db1-494a-874e-3bc7c51d599f",
+				"method": ""
+			},
+			{
+				"id": "8bcf8a60-c703-4650-80be-e2fee5b03cb7",
+				"method": ""
+			},
+			{
+				"id": "69a1dbb6-5002-4222-bef0-e3258f736491",
+				"method": ""
+			},
+			{
+				"id": "5ddf8806-c0ab-4762-a2e6-f1acd9ac31c3",
+				"method": ""
+			},
+			{
+				"id": "c1f98e54-ac00-4e29-9762-e1b35f7b3da9",
+				"method": ""
+			},
+			{
+				"id": "fdc79a11-27e2-4a1f-96bf-0e629ef89e67",
+				"method": ""
+			},
+			{
+				"id": "d2843290-6c60-4e77-9a0c-6b6fac618e28",
+				"method": ""
+			},
+			{
+				"id": "ff6c3f00-db64-440a-9ed2-e6dc6dc1fed6",
+				"method": ""
+			},
+			{
+				"id": "71ecc9da-ac3b-4201-a1f7-6f741a0adcee",
+				"method": ""
+			},
+			{
+				"id": "42bfc07c-3b36-494c-8661-e4e77bc90bdb",
+				"method": ""
+			},
+			{
+				"id": "a39fe69d-4743-42b3-be0d-3d58d66d19af",
+				"method": ""
+			},
+			{
+				"id": "15ebba03-dbc3-4a6b-aab1-282f9b47bdac",
+				"method": ""
+			}
+		]
+	}
+}

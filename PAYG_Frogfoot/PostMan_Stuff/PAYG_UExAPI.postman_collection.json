@@ -1,0 +1,1328 @@
+{
+	"info": {
+		"_postman_id": "aa076e1d-40e0-4a08-aa20-848e80eb7934",
+		"name": "PAYG_UExAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Content-TypePresent/Not",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {",
+							"    pm.response.to.have.header(\"Content-Type\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 60000\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}",
+					"host": [
+						"{{uURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Content-TypeValue_Validatioin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"pm.test(\"Content-Type is JSON\", function () {",
+							"    pm.response.to.be.json;",
+							"})",
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}",
+					"host": [
+						"{{uURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ValidAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-03-25 00:00:00&endDate= 2019-04-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-03-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-04-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InvalidAPI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}00",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}",
+					"host": [
+						"{{uURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NoAPIKey",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 401\", function () {",
+							"    pm.response.to.have.status(401);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 500ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}",
+					"host": [
+						"{{uURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "startDateWithValidFormat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"solidId Present\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"solidId\");",
+							"});pm.test(\"dfaCircuitIdNumber Preset\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"dfaCircuitNumber\");",
+							"});pm.test(\"linkSpeed Present\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"linkSpeed\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:00&endDate= 2019-11-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "startDateWithInValidFormat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 25-10-2019 00:00:00&endDate= 2019-11-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 25-10-2019 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "startDateWithout25thDateOfMonth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-20 00:00:00&endDate= 2019-11-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-20 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "startDateWithInvaldMidnightTime",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:01&endDate= 2019-11-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:01"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endDateWithValidFormat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"solidId\");",
+							"});pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"dfaCircuitNumber\");",
+							"});pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"linkSpeed\");",
+							"});",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:00&endDate= 2019-11-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endDateWithInValidFormat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 60000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:00&endDate= 24-11-2019 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 24-11-2019 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endDateWithout24thDateOfMonth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:00&endDate= 2019-11-25 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-25 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endDateWithInvaldMidnightTime",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:00&endDate= 2019-11-24 23:59:58",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-24 23:59:58"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endDateWithEarliestStartDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:00&endDate= 2019-11-23 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-23 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "endDateWithLatestStartDate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 400ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-10-25 00:00:00&endDate= 2019-11-26 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-10-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-11-26 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lastSolidIdFollowUpPagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"",
+							"pm.test(\"endOfRecords should be true\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.endOfRecords).to.eql(true);",
+							"});",
+							"var body = JSON.parse(responseBody);",
+							"  tests[\"Count: \"  + body.result.length] = true;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:59&lastSolidId=334378",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-06-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-07-24 23:59:59"
+						},
+						{
+							"key": "lastSolidId",
+							"value": "334378"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "successMsgIsTrue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"",
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Is success is true\", function () {",
+							"    ",
+							"    pm.expect(jsonData.success).to.eql(true);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-06-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-07-24 23:59:59"
+						},
+						{
+							"key": "lastSolidId",
+							"value": "334378",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "successMsgIsFalse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Is Success false\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).to.eql(\"false\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:5",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-06-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-07-24 23:59:5"
+						},
+						{
+							"key": "lastSolidId",
+							"value": "334378",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lastSolidIdPagination",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"",
+							"pm.test(\"endOfRecords should be true\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.endOfRecords).to.eql(false);",
+							"});",
+							"var body = JSON.parse(responseBody);",
+							"  tests[\"Count: \"  + body.result.length] = true;"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-06-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-07-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "message",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Message should contain Error code\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"13: Invalid End Date\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:5",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-06-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-07-24 23:59:5"
+						},
+						{
+							"key": "lastSolidId",
+							"value": "334378",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resultResponseWithAllRecordsInAscendingOrderOfSolidId",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"result\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"solidId\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"dfaCircuitNumber\");",
+							"});",
+							"",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"linkSpeed\");",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "lastSolidId",
+							"value": "334378",
+							"disabled": true
+						},
+						{
+							"key": "startDate",
+							"value": " 2019-06-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-07-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resultResponseWithRecordsCount2000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"var body = JSON.parse(responseBody);",
+							"  tests[\"Count: \"  + body.result.length] = true;",
+							"",
+							"// // tests[\"Count: \" + (pm.response.json().result.length)] = true;",
+							"// // // tests[\"Items length is greater than or equal to 3\"] = pm.response.json().result.length >= 3;",
+							"",
+							"// var body = JSON.parse(responseBody);",
+							"//   tests[\"Count: \"  + body.result.length] = true;",
+							"  ",
+							"// //   pm.test('Employee names are in sorted order', () => {",
+							"// //   // Using the orderBy function from lodash ",
+							"// //   // Read docs: https://lodash.com/docs/4.17.10#orderBy",
+							"// //     var expectedSortedOrder = _.orderBy(responseBody.result, [\"solidId\"],[\"asc\"]);",
+							"",
+							"// //     pm.expect(responseBody.result).to.eql(expectedSortedOrder);    ",
+							"// // });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-06-25 00:00:00&endDate= 2019-07-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-06-25 00:00:00"
+						},
+						{
+							"key": "lastSolidId",
+							"value": "334378",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-07-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resultResponseWithNoRecords",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"pm.test(\"Result should be empty[]\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.result).to.eql([]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-01-25 00:00:00&endDate= 2019-02-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": " 2019-01-25 00:00:00"
+						},
+						{
+							"key": "lastSolidId",
+							"value": "334378",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-02-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "linkSpeed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2630fd9e-093b-45d1-b48a-14babd62a35d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 50000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(50000);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"linkSpeed\");",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Mbps\");",
+							"});",
+							"// pm.test(\"Your test name\", function () {",
+							"//     var jsonData = pm.response.json();",
+							"//     pm.expect(jsonData.linkSpeed).to.eql(\"82.19 Mbps\");",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apiKey",
+						"value": "{{apiKey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uURL}}?startDate= 2019-08-25 00:00:00&endDate= 2019-09-24 23:59:59",
+					"host": [
+						"{{uURL}}"
+					],
+					"query": [
+						{
+							"key": "lastSolidId",
+							"value": "334378",
+							"disabled": true
+						},
+						{
+							"key": "startDate",
+							"value": " 2019-08-25 00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": " 2019-09-24 23:59:59"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e050be00-507c-40db-9691-b2b50a5f87c2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9cac5f69-46f0-4334-9b04-80a428d8e086",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "1afbe2b8-01ea-472f-bd25-adf89c5c0304",
+			"key": "uURL",
+			"value": "http://172.25.2.20:8080/PAYGUxAPI/frogfoot/getlinkusage",
+			"type": "string"
+		},
+		{
+			"id": "08b0ff21-700f-4130-aa59-f0ad2b63a04d",
+			"key": "apiKey",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1MCIsImlzcyI6IlNvbGlkaVRlY2giLCJpYXQiOjE1NTQxOTA3ODV9.Am7F2y88LlgsftsZrQVAjvkVji3ORLF5uxcFRhQD2sk",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="PAYG">
+  <test thread-count="5" name="UEx_API">
+    <classes>
+      <class name="UEx_API.EndDateInvalid"/>
+      <class name="UEx_API.EndDateWithEarlyStartDate"/>
+      <class name="UEx_API.ApiKeyInvaid"/>
+      <class name="UEx_API.SuccessMsgFalse"/>
+      <class name="UEx_API.Success"/>
+      <class name="UEx_API.EndDateWithout24"/>
+      <class name="UEx_API.EndDate"/>
+      <class name="UEx_API.LastSolidIDPaginationFollowUP"/>
+      <class name="UEx_API.StartDateWithInvalidMidnightTime"/>
+      <class name="UEx_API.StartDateInvalid"/>
+      <class name="UEx_API.LinkSpeed"/>
+      <class name="UEx_API.ContentType"/>
+      <class name="UEx_API.LastSolidId"/>
+      <class name="UEx_API.Message"/>
+      <class name="UEx_API.StartDate"/>
+      <class name="UEx_API.ApiKeyNo"/>
+      <class name="UEx_API.EndDateInvalidMidTime"/>
+      <class name="UEx_API.ApiKey"/>
+      <class name="UEx_API.StartDateWithout25"/>
+      <class name="UEx_API.Result"/>
+      <class name="UEx_API.ResultRecordCount"/>
+      <class name="UEx_API.ResultNoRecords"/>
+      <class name="UEx_API.EndDateWithLatestStardDate"/>
+    </classes>
+  </test> <!-- UEx_API -->
+</suite> <!-- PAYG -->

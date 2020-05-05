@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [PAYG]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Process_API(failed)">
+    <classes>
+      <class name="Process_API.AuthKey">
+        <methods>
+          <include name="validAuthKeywithValidParams"/>
+        </methods>
+      </class> <!-- Process_API.AuthKey -->
+    </classes>
+  </test> <!-- Process_API(failed) -->
+</suite> <!-- Failed suite [PAYG] -->

@@ -1,0 +1,785 @@
+{
+	"id": "99d6961c-83a8-4d87-8cbf-e9c2504d2d8e",
+	"name": "PAYG_SysAPI",
+	"timestamp": "2020-01-23T05:53:22.636Z",
+	"collection_id": "4ac57a67-49bd-4c12-956a-6a14f6857887",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 96,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "ebd39de8-516e-4e19-96ec-2f1c5e944ab8",
+			"name": "001ContentTypePresent/Not",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID",
+			"time": 53,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type is present": true,
+				"Response time is less than 60000ms": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "e7a8f559-3f65-47c8-b2f8-b051664812da",
+			"name": "002ContentTypeValueValidation",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID",
+			"time": 41,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Content-Type is present": true,
+				"Response time is less than 60000ms": true,
+				"Content-Type is JSON": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is JSON": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "777f2415-c8b4-4576-abf7-bf4681894f87",
+			"name": "003ValidAuthwithValidParams",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL12-0000095",
+			"time": 105,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is 0": true,
+				"resultMessage is success": true,
+				"CrctNb_Name is Present": true,
+				"Orde_OrderQuoteID is present": true,
+				"Orde_Status is present": true,
+				"OrIt_LineItemID is present": true,
+				"OrIt_productfamilyid is present": true,
+				"prod_name is present": true,
+				"prod_bandwidth_code is present": true,
+				"OrIt_listprice is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultMessage is success": {
+					"pass": 1,
+					"fail": 0
+				},
+				"CrctNb_Name is Present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Orde_OrderQuoteID is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Orde_Status is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"OrIt_LineItemID is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"OrIt_productfamilyid is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_name is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_bandwidth_code is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"OrIt_listprice is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "90fa3f1b-48ff-45bc-84b7-8840c0139592",
+			"name": "004InValidAuthwithValidParams",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL31-0000304",
+			"time": 41,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response time is less than 60000ms": true,
+				"errorCode is 4012": true,
+				"errorMessage is Auth Token cannot be accepted: Auth Token not found": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 4012": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorMessage is Auth Token cannot be accepted: Auth Token not found": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "a6520c9e-0ff9-4ba4-af19-11a91495349a",
+			"name": "005NoAuthwithInValidParams",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL12-0000095",
+			"time": 21,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Status code is 401": true,
+				"Response time is less than 60000ms": true,
+				"errorCode is 4011": true,
+				"errorMessage is Auth Token not found or not authorized: Error - unable to find authorization": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 4011": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorMessage is Auth Token not found or not authorized: Error - unable to find authorization": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "b9372ed2-7d09-447c-a559-1dd15ed56dab",
+			"name": "006verifydfaCircuitIDwithValidID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL31-0000304",
+			"time": 113,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is 0": true,
+				"resultMessage is success": true,
+				"CrctNb_Name is Present": true,
+				"Orde_OrderQuoteID is present": true,
+				"Orde_Status is present": true,
+				"OrIt_LineItemID is present": true,
+				"OrIt_productfamilyid is present": true,
+				"prod_name is present": true,
+				"prod_bandwidth_code is present": true,
+				"OrIt_listprice is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultMessage is success": {
+					"pass": 1,
+					"fail": 0
+				},
+				"CrctNb_Name is Present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Orde_OrderQuoteID is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Orde_Status is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"OrIt_LineItemID is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"OrIt_productfamilyid is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_name is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_bandwidth_code is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"OrIt_listprice is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "097c367c-ed25-42ff-94cf-84b0ffdbb63f",
+			"name": "007verifydfaCircuitIDwithInValidID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL31-00003041",
+			"time": 87,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is -1": true,
+				"errorCode is 400": true,
+				"Response body contains errorMessage": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is -1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body contains errorMessage": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "59c2c979-a81b-4cf3-bca8-d6e478bf1c5c",
+			"name": "008verifydfaCircuitIDwithoutID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID",
+			"time": 32,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 60000ms": true,
+				"errorCode is 40032": true,
+				"Response body contains errorMessage": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 40032": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body contains errorMessage": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "3f288136-feeb-4c51-b629-b2e90d893a0f",
+			"name": "009fetchLinkUsageWithValidOrderID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/fetchLinkUsage?orderID=612398",
+			"time": 137,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is 0": true,
+				"Message is 'found the Link Usage information for orderID: 612398'": true,
+				"CrctNb_Name is Present": true,
+				"Orde_reference is Present": true,
+				"Orde_OrderQuoteID is present": true,
+				"oppo_link_type is present": true,
+				"Prod_ProductFamilyID is present": true,
+				"Prod_ProductID is present": true,
+				"prod_name is present": true,
+				"prod_min_bandwidth is present": true,
+				"prod_max_bandwidth is present": true,
+				"prod_bandwidth_code is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Message is 'found the Link Usage information for orderID: 612398'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"CrctNb_Name is Present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Orde_reference is Present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Orde_OrderQuoteID is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"oppo_link_type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Prod_ProductFamilyID is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Prod_ProductID is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_name is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_min_bandwidth is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_max_bandwidth is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"prod_bandwidth_code is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "0971f1a5-7058-4ed4-abea-10042fecc247",
+			"name": "010fetchLinkUsageWithInvalidOrderID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/fetchLinkUsage?orderID=876161",
+			"time": 84,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"errorCode is 400": true,
+				"'errorMessage' is presented in Response Body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"'errorMessage' is presented in Response Body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "de2e75e2-0b57-4bc2-a41d-0025e9034676",
+			"name": "011fetchLinkUsageWithoutOrderID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/fetchLinkUsage",
+			"time": 36,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Response time is less than 60000ms": true,
+				"errorCode is 40032": true,
+				"'errorMessage' is presented in Response Body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 40032": {
+					"pass": 1,
+					"fail": 0
+				},
+				"'errorMessage' is presented in Response Body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "6fc6f570-bfd8-4d3f-ad5b-038201a43c44",
+			"name": "012UpgradewithValidOrder&ProdID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=612397&prodID=1586",
+			"time": 1433,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200 OK": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is 0": true,
+				"errorCode is 200": true,
+				"Response Body contains Reference no": true,
+				"Response Body contains ProdName": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is 0": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response Body contains Reference no": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response Body contains ProdName": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "40f65cfb-533a-45a4-b625-b1ead55d7024",
+			"name": "013UpgradewithInvalidOrder&ProdID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=876161&prodID=15861",
+			"time": 381,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is -1": true,
+				"errorCode is 422": true,
+				"'resultMessage' is presented in Response Body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is -1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 422": {
+					"pass": 1,
+					"fail": 0
+				},
+				"'resultMessage' is presented in Response Body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "2cdd3afb-ea7a-4cc1-b7cb-36652a12a801",
+			"name": "014UpgradewithInvalidOrderId&ValidProdID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=6137341&prodID=1586",
+			"time": 541,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is -1": true,
+				"errorCode is 422": true,
+				"'resultMessage' is presented in Response Body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is -1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 422": {
+					"pass": 1,
+					"fail": 0
+				},
+				"'resultMessage' is presented in Response Body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "196214da-a545-475b-a8cd-4292aef5f83d",
+			"name": "015UpgradewithValidOrderId&InvalidProdID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=612397&prodID=14271",
+			"time": 750,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"resultCode is -1": true,
+				"errorCode is 422": true,
+				"'resultMessage' is presented in Response Body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"resultCode is -1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 422": {
+					"pass": 1,
+					"fail": 0
+				},
+				"'resultMessage' is presented in Response Body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		},
+		{
+			"id": "84d655e4-5351-4ba5-9b3d-5df3340096cf",
+			"name": "017DowngradewithValidOrder&ProdID",
+			"url": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/downgradeOrder?OrderID=612397&prodID=1586",
+			"time": 988,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Response time is less than 60000ms": true,
+				"statusCode in the Response Body is -1": true,
+				"errorCode is 100": true,
+				"'errorMessage' is presented in Response Body": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response time is less than 60000ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"statusCode in the Response Body is -1": {
+					"pass": 1,
+					"fail": 0
+				},
+				"errorCode is 100": {
+					"pass": 1,
+					"fail": 0
+				},
+				"'errorMessage' is presented in Response Body": {
+					"pass": 1,
+					"fail": 0
+				}
+			}
+		}
+	],
+	"count": 1,
+	"collection": {
+		"requests": [
+			{
+				"id": "ebd39de8-516e-4e19-96ec-2f1c5e944ab8",
+				"method": "GET"
+			},
+			{
+				"id": "e7a8f559-3f65-47c8-b2f8-b051664812da",
+				"method": "GET"
+			},
+			{
+				"id": "777f2415-c8b4-4576-abf7-bf4681894f87",
+				"method": "GET"
+			},
+			{
+				"id": "90fa3f1b-48ff-45bc-84b7-8840c0139592",
+				"method": "GET"
+			},
+			{
+				"id": "a6520c9e-0ff9-4ba4-af19-11a91495349a",
+				"method": "GET"
+			},
+			{
+				"id": "b9372ed2-7d09-447c-a559-1dd15ed56dab",
+				"method": "GET"
+			},
+			{
+				"id": "097c367c-ed25-42ff-94cf-84b0ffdbb63f",
+				"method": "GET"
+			},
+			{
+				"id": "59c2c979-a81b-4cf3-bca8-d6e478bf1c5c",
+				"method": "GET"
+			},
+			{
+				"id": "3f288136-feeb-4c51-b629-b2e90d893a0f",
+				"method": "GET"
+			},
+			{
+				"id": "0971f1a5-7058-4ed4-abea-10042fecc247",
+				"method": "GET"
+			},
+			{
+				"id": "de2e75e2-0b57-4bc2-a41d-0025e9034676",
+				"method": "GET"
+			},
+			{
+				"id": "6fc6f570-bfd8-4d3f-ad5b-038201a43c44",
+				"method": "GET"
+			},
+			{
+				"id": "40f65cfb-533a-45a4-b625-b1ead55d7024",
+				"method": "GET"
+			},
+			{
+				"id": "2cdd3afb-ea7a-4cc1-b7cb-36652a12a801",
+				"method": "GET"
+			},
+			{
+				"id": "196214da-a545-475b-a8cd-4292aef5f83d",
+				"method": "GET"
+			},
+			{
+				"id": "84d655e4-5351-4ba5-9b3d-5df3340096cf",
+				"method": "GET"
+			}
+		]
+	}
+}

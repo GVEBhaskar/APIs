@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="PAYG">
+  <test thread-count="5" name="System_API">
+    <classes>
+      <class name="System_API.Downgrade"/>
+      <class name="System_API.UpgradeWithInvalidOrderNProdIDs"/>
+      <class name="System_API.FetchLinkUsageNoOrderId"/>
+      <class name="System_API.ContentTypeFormat"/>
+      <class name="System_API.VerifyDfaCircuitIdWithNoParam"/>
+      <class name="System_API.Upgrade"/>
+      <class name="System_API.UpgradeWithValidOrderIDNInvalidProdID"/>
+      <class name="System_API.VerifyDFACircuitID"/>
+      <class name="System_API.VerifyDfaCircuitIDWithInvalidParam"/>
+      <class name="System_API.AuthKeyInvalid"/>
+      <class name="System_API.AuthKey"/>
+      <class name="System_API.UpgradeWithInvalidOrderIDNValidProdID"/>
+      <class name="System_API.ContentType"/>
+      <class name="System_API.FetchLinkUsage"/>
+      <class name="System_API.FetchLinkUsageWithInvalidOrderID"/>
+      <class name="System_API.AuthKeyNo"/>
+      <class name="System_API.UpgradeWithNoOrderNProdIDs"/>
+    </classes>
+  </test> <!-- System_API -->
+</suite> <!-- PAYG -->

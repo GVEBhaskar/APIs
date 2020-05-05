@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\DFA\DFA_PAYG_UExAPI-master.zip_expanded\dfa_payg_uexapi\PAYG\.metadata\.plugins\org.eclipse.jdt.core
+1248545562.index
+3546334592.index

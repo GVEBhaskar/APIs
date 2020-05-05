@@ -1,0 +1,1540 @@
+{
+	"info": {
+		"_postman_id": "4ac57a67-49bd-4c12-956a-6a14f6857887",
+		"name": "PAYG_SysAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Validation",
+			"item": [
+				{
+					"name": "001ContentTypePresent/Not",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "DFA21-0004631",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "002ContentTypeValueValidation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"Content-Type is JSON\", function () {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "PCL43-0000042",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "003ValidAuthwithValidParams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is 0\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(0);",
+									"});",
+									"pm.test(\"resultMessage is success\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultMessage).to.eql(\"success\");",
+									"});",
+									"pm.test(\"CrctNb_Name is Present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"CrctNb_Name\");",
+									"});",
+									"pm.test(\"Orde_OrderQuoteID is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Orde_OrderQuoteID\");",
+									"});",
+									"pm.test(\"Orde_Status is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Orde_Status\");",
+									"});",
+									"pm.test(\"OrIt_LineItemID is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"OrIt_LineItemID\");",
+									"});",
+									"pm.test(\"OrIt_productfamilyid is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"OrIt_productfamilyid\");",
+									"});",
+									"pm.test(\"prod_name is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_name\");",
+									"});",
+									"pm.test(\"prod_bandwidth_code is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_bandwidth_code\");",
+									"});",
+									"pm.test(\"OrIt_listprice is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"OrIt_listprice\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL12-0000095",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "PCL12-0000095"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "004InValidAuthwithValidParams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"errorCode is 4012\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4012);",
+									"});",
+									"pm.test(\"errorMessage is Auth Token cannot be accepted: Auth Token not found\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Auth Token cannot be accepted: Auth Token not found\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO91:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL31-0000304",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "PCL31-0000304"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "005NoAuthwithInValidParams",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"errorCode is 4011\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4011);",
+									"});",
+									"pm.test(\"errorMessage is Auth Token not found or not authorized: Error - unable to find authorization\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Auth Token not found or not authorized: Error - unable to find authorization\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL12-0000095",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "PCL12-0000095"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "006verifydfaCircuitIDwithValidID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is 0\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(0);",
+									"});",
+									"pm.test(\"resultMessage is success\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultMessage).to.eql(\"success\");",
+									"});",
+									"pm.test(\"CrctNb_Name is Present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"CrctNb_Name\");",
+									"});",
+									"pm.test(\"Orde_OrderQuoteID is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Orde_OrderQuoteID\");",
+									"});",
+									"pm.test(\"Orde_Status is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Orde_Status\");",
+									"});",
+									"pm.test(\"OrIt_LineItemID is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"OrIt_LineItemID\");",
+									"});",
+									"pm.test(\"OrIt_productfamilyid is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"OrIt_productfamilyid\");",
+									"});",
+									"pm.test(\"prod_name is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_name\");",
+									"});",
+									"pm.test(\"prod_bandwidth_code is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_bandwidth_code\");",
+									"});",
+									"pm.test(\"OrIt_listprice is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"OrIt_listprice\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL31-0000304",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "PCL31-0000304"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "007verifydfaCircuitIDwithInValidID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 400\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});",
+									"pm.test(\"Response body contains errorMessage\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?dfaCircuitID=PCL31-00003041",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "PCL31-00003041"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "008verifydfaCircuitIDwithoutID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c57f070-9adb-45a2-ae62-dae0187a58ec",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"errorCode is 40032\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(40032);",
+									"});pm.test(\"Response body contains errorMessage\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/verifydfaCircuitID?",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"verifydfaCircuitID"
+							],
+							"query": [
+								{
+									"key": "dfaCircuitID",
+									"value": "PCL31-00003041",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "009fetchLinkUsageWithValidOrderID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3475af30-8598-4281-9c6c-9081f56e47e7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is 0\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(0);",
+									"});",
+									"pm.test(\"Message is 'found the Link Usage information for orderID: 612398'\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultMessage).to.eql(\"found the Link Usage information for orderID: 612398\");",
+									"});",
+									"pm.test(\"CrctNb_Name is Present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"CrctNb_Name\");",
+									"});",
+									"pm.test(\"Orde_reference is Present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Orde_reference\");",
+									"});",
+									"pm.test(\"Orde_OrderQuoteID is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Orde_OrderQuoteID\");",
+									"});",
+									"pm.test(\"oppo_link_type is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"oppo_link_type\");",
+									"});",
+									"pm.test(\"Prod_ProductFamilyID is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Prod_ProductFamilyID\");",
+									"});",
+									"pm.test(\"Prod_ProductID is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Prod_ProductID\");",
+									"});",
+									"pm.test(\"prod_name is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_name\");",
+									"});",
+									"pm.test(\"prod_min_bandwidth is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_min_bandwidth\");",
+									"});",
+									"pm.test(\"prod_max_bandwidth is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_max_bandwidth\");",
+									"});",
+									"pm.test(\"prod_bandwidth_code is present\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"prod_bandwidth_code\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/fetchLinkUsage?orderID=612398",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"fetchLinkUsage"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-10-25 00:00:00",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2019-11-24 23:59:59",
+									"disabled": true
+								},
+								{
+									"key": "orderID",
+									"value": "612398"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "010fetchLinkUsageWithInvalidOrderID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3475af30-8598-4281-9c6c-9081f56e47e7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"errorCode is 400\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/fetchLinkUsage?orderID=876161",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"fetchLinkUsage"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-10-25 00:00:00",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2019-11-24 23:59:59",
+									"disabled": true
+								},
+								{
+									"key": "orderID",
+									"value": "876161"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "011fetchLinkUsageWithoutOrderID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3475af30-8598-4281-9c6c-9081f56e47e7",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"errorCode is 40032\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(40032);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/fetchLinkUsage?",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"fetchLinkUsage"
+							],
+							"query": [
+								{
+									"key": "startDate",
+									"value": "2019-10-25 00:00:00",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "2019-11-24 23:59:59",
+									"disabled": true
+								},
+								{
+									"key": "orderID",
+									"value": "1091121",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "012UpgradewithValidOrder&ProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22fb778c-d5f0-4634-8fc2-f40c9d690799",
+								"exec": [
+									"pm.test(\"Status code is 200 OK\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is 0\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(0);",
+									"});",
+									"pm.test(\"errorCode is 200\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(200);",
+									"});",
+									"pm.test(\"Response Body contains Reference no\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Reference\");",
+									"});",
+									"pm.test(\"Response Body contains ProdName\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"ProdName\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=612397&prodID=1586",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"upgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "612397"
+								},
+								{
+									"key": "prodID",
+									"value": "1586"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "013UpgradewithInvalidOrder&ProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd562139-4a46-4803-acd7-15e6c1349a62",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 422\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(422);",
+									"});",
+									"pm.test(\"'resultMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"resultMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=876161&prodID=15861",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"upgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "876161"
+								},
+								{
+									"key": "prodID",
+									"value": "15861"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "014UpgradewithInvalidOrderId&ValidProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "49184025-98ae-4784-a4e7-f6e516d89f26",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 422\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(422);",
+									"});",
+									"pm.test(\"'resultMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"resultMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=6137341&prodID=1586",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"upgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "6137341"
+								},
+								{
+									"key": "prodID",
+									"value": "1586"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "015UpgradewithValidOrderId&InvalidProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a98b560-77a1-4259-9165-d3a18cd11283",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"resultCode is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 422\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(422);",
+									"});",
+									"pm.test(\"'resultMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"resultMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?OrderID=612397&prodID=14271",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"upgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "612397"
+								},
+								{
+									"key": "prodID",
+									"value": "14271"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "016UpgradewithoutOrderId&ProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4b946ec5-382e-455e-bc8e-636f2f277728",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"errorCode is 40032\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(40032);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/upgradeOrder?",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"upgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "109112",
+									"disabled": true
+								},
+								{
+									"key": "prodID",
+									"value": "14271",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "017DowngradewithValidOrder&ProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "687b3b72-ae63-4b96-88ff-1b068ba01ac7",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"statusCode in the Response Body is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.statusCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 100\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(100);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/downgradeOrder?OrderID=612397&prodID=1586",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"downgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "612397"
+								},
+								{
+									"key": "prodID",
+									"value": "1586"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "018DowngradewithInvalidOrder&ProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51422516-3d74-4328-9377-a21a7674446e",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"statusCode in the Response Body is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.statusCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 100\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(100);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/downgradeOrder?OrderID=1087991&prodID=14271",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"downgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "1087991"
+								},
+								{
+									"key": "prodID",
+									"value": "14271"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "019DowngradewithInvalidOrderID&ValidProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "308f3753-b35c-456a-9bb0-fc2639a22b3d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"statusCode in the Response Body is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.statusCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 100\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(100);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/downgradeOrder?OrderID=1087991&prodID=1586",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"downgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "1087991"
+								},
+								{
+									"key": "prodID",
+									"value": "1586"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "020DowngradewithValidOrderID&InvalidProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc7be1c7-69b6-4864-aee8-6808e3822fcd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"statusCode in the Response Body is -1\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.statusCode).to.eql(-1);",
+									"});",
+									"pm.test(\"errorCode is 100\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(100);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/downgradeOrder?OrderID=612397&prodID=14271",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"downgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "612397"
+								},
+								{
+									"key": "prodID",
+									"value": "14271"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "021DowngradewithoutOrderID&ProdID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f9a2efe-1340-498a-b5a9-1ee646dddde3",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"errorCode is 40032\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(40032);",
+									"});",
+									"pm.test(\"'errorMessage' is presented in Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"errorMessage\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "CALiveAPICreator udg9NY10GqmqSgiRohO9:1"
+							}
+						],
+						"url": {
+							"raw": "http://dfaapicrlab01.dfa.local:8080/APIServer/rest/default/test-paygsystemapi/v1/downgradeOrder?",
+							"protocol": "http",
+							"host": [
+								"dfaapicrlab01",
+								"dfa",
+								"local"
+							],
+							"port": "8080",
+							"path": [
+								"APIServer",
+								"rest",
+								"default",
+								"test-paygsystemapi",
+								"v1",
+								"downgradeOrder"
+							],
+							"query": [
+								{
+									"key": "OrderID",
+									"value": "108799",
+									"disabled": true
+								},
+								{
+									"key": "prodID",
+									"value": "14271",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

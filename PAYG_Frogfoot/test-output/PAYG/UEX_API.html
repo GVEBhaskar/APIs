@@ -1,0 +1,199 @@
+<html>
+<head>
+<title>TestNG:  UEX_API</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>UEX_API</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>24/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Jan 23 07:17:09 SAST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>41 seconds (41064 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='UEx_API.ContentType.contentTypeAvailabilityInHeaders()'><b>contentTypeAvailabilityInHeaders</b><br>Test class: UEx_API.ContentType</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.ContentType@3527942a</td></tr>
+<tr>
+<td title='UEx_API.ContentType.contentTypeformat()'><b>contentTypeformat</b><br>Test class: UEx_API.ContentType</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.ContentType@3527942a</td></tr>
+<tr>
+<td title='UEx_API.EndDateWithEarlyStartDate.endDateWithEarlierThanStartDate()'><b>endDateWithEarlierThanStartDate</b><br>Test class: UEx_API.EndDateWithEarlyStartDate</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.EndDateWithEarlyStartDate@52b1beb6</td></tr>
+<tr>
+<td title='UEx_API.EndDateInvalidMidTime.endDateWithInvalidMidnightTime()'><b>endDateWithInvalidMidnightTime</b><br>Test class: UEx_API.EndDateInvalidMidTime</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.EndDateInvalidMidTime@4f80542f</td></tr>
+<tr>
+<td title='UEx_API.EndDateInvalid.endDateWithInvalidParams()'><b>endDateWithInvalidParams</b><br>Test class: UEx_API.EndDateInvalid</td>
+<td></td>
+<td>8</td>
+<td>UEx_API.EndDateInvalid@53aac487</td></tr>
+<tr>
+<td title='UEx_API.EndDateWithLatestStardDate.endDateWithLatestThanStartDate()'><b>endDateWithLatestThanStartDate</b><br>Test class: UEx_API.EndDateWithLatestStardDate</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.EndDateWithLatestStardDate@5d534f5d</td></tr>
+<tr>
+<td title='UEx_API.EndDate.endDateWithValidParams()'><b>endDateWithValidParams</b><br>Test class: UEx_API.EndDate</td>
+<td></td>
+<td>4</td>
+<td>UEx_API.EndDate@73e9cf30</td></tr>
+<tr>
+<td title='UEx_API.EndDateWithout24.endDateWithout24th()'><b>endDateWithout24th</b><br>Test class: UEx_API.EndDateWithout24</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.EndDateWithout24@272113c4</td></tr>
+<tr>
+<td title='UEx_API.ApiKeyInvaid.invalidapiKey()'><b>invalidapiKey</b><br>Test class: UEx_API.ApiKeyInvaid</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.ApiKeyInvaid@273e7444</td></tr>
+<tr>
+<td title='UEx_API.LastSolidId.lastSolidIdWithPagination()'><b>lastSolidIdWithPagination</b><br>Test class: UEx_API.LastSolidId</td>
+<td></td>
+<td>4</td>
+<td>UEx_API.LastSolidId@942a29c</td></tr>
+<tr>
+<td title='UEx_API.LastSolidIDPaginationFollowUP.lastSolidIdWithPaginationFollowUp()'><b>lastSolidIdWithPaginationFollowUp</b><br>Test class: UEx_API.LastSolidIDPaginationFollowUP</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.LastSolidIDPaginationFollowUP@771a660</td></tr>
+<tr>
+<td title='UEx_API.Message.msgWitherrorCode()'><b>msgWitherrorCode</b><br>Test class: UEx_API.Message</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.Message@1ed6388a</td></tr>
+<tr>
+<td title='UEx_API.LinkSpeed.noRecords()'><b>noRecords</b><br>Test class: UEx_API.LinkSpeed</td>
+<td></td>
+<td>4</td>
+<td>UEx_API.LinkSpeed@3f6f6701</td></tr>
+<tr>
+<td title='UEx_API.ResultNoRecords.noRecords()'><b>noRecords</b><br>Test class: UEx_API.ResultNoRecords</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.ResultNoRecords@576d5deb</td></tr>
+<tr>
+<td title='UEx_API.ApiKeyNo.noapiKey()'><b>noapiKey</b><br>Test class: UEx_API.ApiKeyNo</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.ApiKeyNo@534a5a98</td></tr>
+<tr>
+<td title='UEx_API.ResultRecordCount.recordCount()'><b>recordCount</b><br>Test class: UEx_API.ResultRecordCount</td>
+<td></td>
+<td>4</td>
+<td>UEx_API.ResultRecordCount@5e600dd5</td></tr>
+<tr>
+<td title='UEx_API.Result.resultValidate()'><b>resultValidate</b><br>Test class: UEx_API.Result</td>
+<td></td>
+<td>4</td>
+<td>UEx_API.Result@130c12b7</td></tr>
+<tr>
+<td title='UEx_API.StartDateInvalid.startDateWithInvalidFormat()'><b>startDateWithInvalidFormat</b><br>Test class: UEx_API.StartDateInvalid</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.StartDateInvalid@242b836</td></tr>
+<tr>
+<td title='UEx_API.StartDateWithInvalidMidnightTime.startDateWithInvalidMidnigtTime()'><b>startDateWithInvalidMidnigtTime</b><br>Test class: UEx_API.StartDateWithInvalidMidnightTime</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.StartDateWithInvalidMidnightTime@2d52216b</td></tr>
+<tr>
+<td title='UEx_API.StartDate.startDateWithValidFormat()'><b>startDateWithValidFormat</b><br>Test class: UEx_API.StartDate</td>
+<td></td>
+<td>4</td>
+<td>UEx_API.StartDate@5a45133e</td></tr>
+<tr>
+<td title='UEx_API.StartDateWithout25.startDateWithout25thdate()'><b>startDateWithout25thdate</b><br>Test class: UEx_API.StartDateWithout25</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.StartDateWithout25@121314f7</td></tr>
+<tr>
+<td title='UEx_API.SuccessMsgFalse.successMsgFalse()'><b>successMsgFalse</b><br>Test class: UEx_API.SuccessMsgFalse</td>
+<td></td>
+<td>0</td>
+<td>UEx_API.SuccessMsgFalse@7db12bb6</td></tr>
+<tr>
+<td title='UEx_API.Success.successMsgTrue()'><b>successMsgTrue</b><br>Test class: UEx_API.Success</td>
+<td></td>
+<td>4</td>
+<td>UEx_API.Success@783a467b</td></tr>
+<tr>
+<td title='UEx_API.ApiKey.validapiKeyWithValidParams()'><b>validapiKeyWithValidParams</b><br>Test class: UEx_API.ApiKey</td>
+<td></td>
+<td>2</td>
+<td>UEx_API.ApiKey@60bd273d</td></tr>
+</table><p>
+</body>
+</html>
