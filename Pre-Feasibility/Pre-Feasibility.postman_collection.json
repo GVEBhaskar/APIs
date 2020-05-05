@@ -1,0 +1,2478 @@
+{
+	"info": {
+		"_postman_id": "2f5f41ec-fd96-49e7-b71c-6d43dd5c5469",
+		"name": "Pre-Feasibility",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getPreFeasibility",
+			"item": [
+				{
+					"name": "006getPreFeasibility",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e1bad9d-7a9a-476f-b97b-02a76865d7da",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									"pm.test(\"attributes - 'status, isFeasible, feasibleProduct, bandwidth, value, rate, term, distance' are present in the Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"status\",  \"isFeasible\", \"feasibleProduct\", \"bandwidth\", \"value\",  \"rate\", \"term\", \"distance\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'isFeasible':true in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.isFeasible).to.eql(true);",
+									"});",
+									"pm.test(\"'status' is 'ok' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql(\"Ok\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "007getPreFeasibilityIsFalse",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e1bad9d-7a9a-476f-b97b-02a76865d7da",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									"pm.test(\"attributes - 'status, isFeasible, feasibleProduct, bandwidth, value, rate, term, distance' are present in the Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"status\",  \"isFeasible\", \"feasibleProduct\", \"bandwidth\", \"value\",  \"rate\", \"term\", \"distance\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'status' is 'ok' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql(\"Ok\");",
+									"});",
+									"pm.test(\"'isFeasible':false in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.isFeasible).to.eql(false);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-29.872503&bandwidth=5&gpsLatitude=31.004014&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-29.872503"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "31.004014"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "008getPreFeasibilityInSea",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e1bad9d-7a9a-476f-b97b-02a76865d7da",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'No access points found within range.' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"No access points found within range.\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-29.780639&bandwidth=5&gpsLatitude=31.129406&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-29.780639"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "31.129406"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "009No/empty-gpsLongitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c26a4ecd-9b5c-43a6-b508-2369219ed9d9",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Latitude or Longitude cannot be null' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Latitude or Longitude cannot be null\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "010Invalid-gpsLongitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29c69255-8060-43e4-8cd9-8775418fbbe2",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'No access points found within range.' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"No access points found within range.\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-125.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-125.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "011No/empty-gpsLatitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d20f5ef-89c7-4da2-b49c-30a1c0d3f09a",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Latitude or Longitude cannot be null' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Latitude or Longitude cannot be null\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739",
+									"disabled": true
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "012Invalid-gpsLatitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "69055374-6d55-4f04-ae3d-60f7738955af",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Latitude must be between -90 and 90 degrees inclusive.' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Latitude must be between -90 and 90 degrees inclusive.\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=128.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "128.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "013No/empty-gpsLong&Latitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "03a0dd04-fb97-43b6-a670-47ef180cc757",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Latitude or Longitude cannot be null' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Latitude or Longitude cannot be null\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?bandwidth=5&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739",
+									"disabled": true
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "014InvalidStringvalueforLong&Lat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e1bad9d-7a9a-476f-b97b-02a76865d7da",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Longitude/Latitude must be of type number' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Longitude/Latitude must be of type number\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=xxxxx&bandwidth=5&gpsLatitude=xxxxx&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "xxxxx"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "xxxxx"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "015No/empty-bandwidth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "73dcb293-088f-422e-b54a-dc8dd5193bd3",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Bandwidth must be provided\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Bandwidth must be provided\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5",
+									"disabled": true
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "016InvalidInteger-bandwidth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ce0bdd62-5196-4113-9a79-ff7c47f208dd",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Invalid bandwidth provided (555 Mbps)' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Invalid bandwidth provided (555 Mbps)\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=555&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "555"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "017InvalidString-bandwidth",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "598d466e-cc5d-4888-ab2d-f5d3e8e68307",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Bandwidth must be of type integer/number' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Bandwidth must be of type integer/number\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=xcv&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "xcv"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "018No/empty-term",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "058e0469-ed58-4c61-8d81-eee167c62c61",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Term must be provided' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Term must be provided\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "019InvalidInteger-term",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d122d5b7-d9b3-4a17-88b9-1458bdc9df15",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Invalid Term (123 year/s)' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Invalid Term (123 year/s)\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=123&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "123"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "020InvalidString-term",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d4c14a2-a163-4709-8564-7fa7b97ef4e1",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Term must be of type integer/number' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Term must be of type integer/number\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=xzx&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "xzx"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "021No/empty-product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8d6334d5-c575-4ca4-b774-eed8a7676d3b",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Product must be provided' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Product must be provided\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "022InvalidInteger-product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "09e2f1f5-1ca2-48c0-8edb-5528939bad55",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Product must be of type string/text' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Product must be of type string/text\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product=12345",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "023InvalidString-product",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3deb0b9-05cd-43d7-beae-639c93d83040",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Bad Request\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'resultCode': 1 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.resultCode).to.eql(1);",
+									"});",
+									"pm.test(\"'errorMessage': 'Product does not exist' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"Product does not exist\");",
+									"});",
+									"pm.test(\"'errorCode': 400 in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "clientId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "orgId",
+								"type": "text",
+								"value": "123"
+							},
+							{
+								"key": "accesskey",
+								"type": "text",
+								"value": "pass"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellanaa'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellanaa'"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Content-Type",
+			"item": [
+				{
+					"name": "024ContentTypeAvailability",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									"pm.test(\"Content-Type is present\", function () {",
+									"    pm.response.to.have.header(\"Content-Type\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "025ContentTypeFormat",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});pm.test(\"Content-Type is JSON\", function () {",
+									"    pm.response.to.be.json;",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1adddbf1-2aa0-49c0-ab0b-bd2c141e9adb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5431d8e5-6094-4086-bab9-d128d38b5049",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "026ValidOrg,Client&accesskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});",
+									"pm.test(\"attributes - 'status, isFeasible, feasibleProduct, bandwidth, value, rate, term, distance' are present in the Response Body\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"status\",  \"isFeasible\", \"feasibleProduct\", \"bandwidth\", \"value\",  \"rate\", \"term\", \"distance\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});",
+									"pm.test(\"'status' is 'ok' in the Response Body\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.status).to.eql(\"Ok\");",
+									"});",
+									"",
+									"// var data = JSON.parse(responseBody);",
+									"// tests [\"Verify offeringId\"] = data.bandwidth[0].unit === \"Mbps\"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "027NoHeaders",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"'success': false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"pm.test(\"'errorCode': 4001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4001);",
+									"});",
+									"pm.test(\"'errorMessage': accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed. \");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "028NoOrgId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"'success': false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"pm.test(\"'errorCode': 4001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4001);",
+									"});",
+									"pm.test(\"'errorMessage': orgId is missing. \\n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"orgId is missing. \\n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "029NoClientId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"'success': false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"pm.test(\"'errorCode': 4001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4001);",
+									"});",
+									"pm.test(\"'errorMessage': clientId is missing. Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"clientId is missing. Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "030Noaccesskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"'success': false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"pm.test(\"'errorCode': 4001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4001);",
+									"});",
+									"pm.test(\"'errorMessage': accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed. \", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed. \");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "031NoOrgId,ClientId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"'success': false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"pm.test(\"'errorCode': 4001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4001);",
+									"});",
+									"pm.test(\"'errorMessage': orgId is missing. \\n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"orgId is missing. \\n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "032NoOrgId,accesskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"'success': false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"pm.test(\"'errorCode': 4001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4001);",
+									"});",
+									"pm.test(\"'errorMessage': accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed. \");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "033NoClinetId,accesskey",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b3b38ed4-80a7-4be6-8cf9-ce2a81e1c976",
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"pm.test(\"Status code name has string\", function () {",
+									"    pm.response.to.have.status(\"Unauthorized\");",
+									"});",
+									"pm.test(\"'success': false\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.success).to.eql(false);",
+									"});",
+									"pm.test(\"'errorCode': 4001\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorCode).to.eql(4001);",
+									"});",
+									"pm.test(\"'errorMessage': accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed.\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.errorMessage).to.eql(\"accesskey is missing.  /n Invalid authentication headers provided. Check credentials and confirm if all parameters are passed. \");",
+									"});",
+									"pm.test(\"Response time is less than 60000ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(60000);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "orgId",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "clientId",
+								"value": "123",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "accesskey",
+								"value": "pass",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{uURI}}?gpsLongitude=-25.859770&bandwidth=5&gpsLatitude=28.214739&term=1&product='magellan'",
+							"host": [
+								"{{uURI}}"
+							],
+							"query": [
+								{
+									"key": "gpsLongitude",
+									"value": "-25.859770"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "32.769809",
+									"disabled": true
+								},
+								{
+									"key": "bandwidth",
+									"value": "5"
+								},
+								{
+									"key": "gpsLatitude",
+									"value": "28.214739"
+								},
+								{
+									"key": "term",
+									"value": "1"
+								},
+								{
+									"key": "product",
+									"value": "'magellan'"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6880faa5-eb6d-4b24-aba9-139838ca7ba6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b5c26172-d152-40dc-9970-ccc201c63d72",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8502c719-0905-4d06-9226-1a18e870784e",
+			"key": "uURI",
+			"value": "http://dfaapigwlab01.dfa.local:8080/getPreFeasibilityUxAPI",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,224 @@
+<html>
+<head>
+<title>TestNG:  EndPointTesting</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>EndPointTesting</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>29/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Feb 25 09:40:18 SAST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>67 seconds (67504 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.NoemptygpsLatitudeParamsgetPreFeasibility()'><b>NoemptygpsLatitudeParamsgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.ContentType.contentTypeAvailabilityInHeaders()'><b>contentTypeAvailabilityInHeaders</b><br>Test class: com.UxAPI.ContentType</td>
+<td></td>
+<td>3</td>
+<td>com.UxAPI.ContentType@6221a451</td></tr>
+<tr>
+<td title='com.UxAPI.ContentType.contentTypeformat()'><b>contentTypeformat</b><br>Test class: com.UxAPI.ContentType</td>
+<td></td>
+<td>2</td>
+<td>com.UxAPI.ContentType@6221a451</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.getPreFeasibilityValidationFalse()'><b>getPreFeasibilityValidationFalse</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>11</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.getPreFeasibilityValidationTrue()'><b>getPreFeasibilityValidationTrue</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>3</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.Test.getPreFeasibilityValidationTrue()'><b>getPreFeasibilityValidationTrue</b><br>Test class: com.UxAPI.Test</td>
+<td></td>
+<td>48</td>
+<td>com.UxAPI.Test@3012646b</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidIntProductgetPreFeasibility()'><b>invalidIntProductgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidIntegerbandwidthgetPreFeasibility()'><b>invalidIntegerbandwidthgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidInttermgetPreFeasibility()'><b>invalidInttermgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidParamsgetPreFeasibility()'><b>invalidParamsgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>1</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidStringProductgetPreFeasibility()'><b>invalidStringProductgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidStringbandwidthgetPreFeasibility()'><b>invalidStringbandwidthgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidStringgpsLongnLatParamsgetPreFeasibility()'><b>invalidStringgpsLongnLatParamsgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidStringtermgetPreFeasibility()'><b>invalidStringtermgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidgpsLatitudeParamsgetPreFeasibility()'><b>invalidgpsLatitudeParamsgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.invalidgpsLongitudeParamsgetPreFeasibility()'><b>invalidgpsLongitudeParamsgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>2</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.noClientId()'><b>noClientId</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.noClientIdaccessKey()'><b>noClientIdaccessKey</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.noEmptyProductgetPreFeasibility()'><b>noEmptyProductgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.noEmptybandwidthgetPreFeasibility()'><b>noEmptybandwidthgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.noEmptygpsLongitudeParamsgetPreFeasibility()'><b>noEmptygpsLongitudeParamsgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.noEmptygpsLongnLatParamsgetPreFeasibility()'><b>noEmptygpsLongnLatParamsgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.getPreFeasibility.noEmptytermgetPreFeasibility()'><b>noEmptytermgetPreFeasibility</b><br>Test class: com.UxAPI.getPreFeasibility</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.getPreFeasibility@52719fb6</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.noHeaders()'><b>noHeaders</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.noOrgId()'><b>noOrgId</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.noOrgIdClientId()'><b>noOrgIdClientId</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.noOrgIdaccessKey()'><b>noOrgIdaccessKey</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.noaccessKey()'><b>noaccessKey</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+<tr>
+<td title='com.UxAPI.Authorization.validauthorizationWithValidParams()'><b>validauthorizationWithValidParams</b><br>Test class: com.UxAPI.Authorization</td>
+<td></td>
+<td>3</td>
+<td>com.UxAPI.Authorization@2e6a8155</td></tr>
+</table><p>
+</body>
+</html>
