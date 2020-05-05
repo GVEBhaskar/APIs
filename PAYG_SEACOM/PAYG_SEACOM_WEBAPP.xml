@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="PAYG_SEACOM_WEBAPP">
+  <test thread-count="5" parallel="tests" name="PAYG_SEACOM_WEBAPP">
+    <packages>
+      <package name="PAYG_SEACOM_GUI"/>
+    </packages>
+  </test> <!-- PAYG_SEACOM_WEBAPP -->
+</suite> <!-- PAYG_SEACOM_WEBAPP -->

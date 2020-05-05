@@ -1,0 +1,144 @@
+<html>
+<head>
+<title>TestNG:  SEACOMPAYG_SYSTEMAPI</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SEACOMPAYG_SYSTEMAPI</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>13/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Apr 15 14:00:43 SAST 2020</td>
+</tr>
+<tr><td>Total time:</td><td>26 seconds (26703 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.FetchLinkUsage.fetchLinkUsageWithoutorderID()'><b>fetchLinkUsageWithoutorderID</b><br>Test class: com.SeacomPAYG_SystemAPI.FetchLinkUsage</td>
+<td></td>
+<td>0</td>
+<td>com.SeacomPAYG_SystemAPI.FetchLinkUsage@25641d39</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.FetchLinkUsage.fetchLinkUsagewithValidOrderID()'><b>fetchLinkUsagewithValidOrderID</b><br>Test class: com.SeacomPAYG_SystemAPI.FetchLinkUsage</td>
+<td></td>
+<td>1</td>
+<td>com.SeacomPAYG_SystemAPI.FetchLinkUsage@25641d39</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.FetchLinkUsage.fetchLinkUsagewithinvalidOrderID()'><b>fetchLinkUsagewithinvalidOrderID</b><br>Test class: com.SeacomPAYG_SystemAPI.FetchLinkUsage</td>
+<td></td>
+<td>1</td>
+<td>com.SeacomPAYG_SystemAPI.FetchLinkUsage@25641d39</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.Authorization.invalidAuthorization()'><b>invalidAuthorization</b><br>Test class: com.SeacomPAYG_SystemAPI.Authorization</td>
+<td></td>
+<td>1</td>
+<td>com.SeacomPAYG_SystemAPI.Authorization@4a883b15</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.Authorization.noAuthorization()'><b>noAuthorization</b><br>Test class: com.SeacomPAYG_SystemAPI.Authorization</td>
+<td></td>
+<td>0</td>
+<td>com.SeacomPAYG_SystemAPI.Authorization@4a883b15</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.Upgrade.upgradeInvalidOrderIDnValidProdID()'><b>upgradeInvalidOrderIDnValidProdID</b><br>Test class: com.SeacomPAYG_SystemAPI.Upgrade</td>
+<td></td>
+<td>3</td>
+<td>com.SeacomPAYG_SystemAPI.Upgrade@7b36aa0c</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.Upgrade.upgradeInvalidValidation()'><b>upgradeInvalidValidation</b><br>Test class: com.SeacomPAYG_SystemAPI.Upgrade</td>
+<td></td>
+<td>2</td>
+<td>com.SeacomPAYG_SystemAPI.Upgrade@7b36aa0c</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.Upgrade.upgradeNoParams()'><b>upgradeNoParams</b><br>Test class: com.SeacomPAYG_SystemAPI.Upgrade</td>
+<td></td>
+<td>0</td>
+<td>com.SeacomPAYG_SystemAPI.Upgrade@7b36aa0c</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.Upgrade.upgradeValidOrderIDnInvalidProdID()'><b>upgradeValidOrderIDnInvalidProdID</b><br>Test class: com.SeacomPAYG_SystemAPI.Upgrade</td>
+<td></td>
+<td>2</td>
+<td>com.SeacomPAYG_SystemAPI.Upgrade@7b36aa0c</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.Upgrade.upgradeValidation()'><b>upgradeValidation</b><br>Test class: com.SeacomPAYG_SystemAPI.Upgrade</td>
+<td></td>
+<td>7</td>
+<td>com.SeacomPAYG_SystemAPI.Upgrade@7b36aa0c</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.VerifydfaCircuitID.verifydfaCircuitIDwithValidParams()'><b>verifydfaCircuitIDwithValidParams</b><br>Test class: com.SeacomPAYG_SystemAPI.VerifydfaCircuitID</td>
+<td></td>
+<td>1</td>
+<td>com.SeacomPAYG_SystemAPI.VerifydfaCircuitID@5824a83d</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.VerifydfaCircuitID.verifydfaCircuitIDwithinvalidParam()'><b>verifydfaCircuitIDwithinvalidParam</b><br>Test class: com.SeacomPAYG_SystemAPI.VerifydfaCircuitID</td>
+<td></td>
+<td>1</td>
+<td>com.SeacomPAYG_SystemAPI.VerifydfaCircuitID@5824a83d</td></tr>
+<tr>
+<td title='com.SeacomPAYG_SystemAPI.VerifydfaCircuitID.verifydfaCircuitIDwithoutParamID()'><b>verifydfaCircuitIDwithoutParamID</b><br>Test class: com.SeacomPAYG_SystemAPI.VerifydfaCircuitID</td>
+<td></td>
+<td>0</td>
+<td>com.SeacomPAYG_SystemAPI.VerifydfaCircuitID@5824a83d</td></tr>
+</table><p>
+</body>
+</html>

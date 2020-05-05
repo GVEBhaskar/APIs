@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [DFA Infrastructure Coverage]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="User Experience API(failed)">
+    <classes>
+      <class name="com.ICM_UxAPI.GETPrecincts">
+        <methods>
+          <include name="validresultOffsetIs1001getPrecincts"/>
+          <include name="lastParamresultOffsetIs3000getPrecincts"/>
+          <include name="whereParamQuickbase_StatusIsCompletedgetPrecincts"/>
+          <include name="whereParamQuickbase_StatusIsPartialBuildCompletedgetPrecincts"/>
+          <include name="setUP"/>
+          <include name="whereParamQuickbase_StatusIsPlannedgetPrecincts"/>
+        </methods>
+      </class> <!-- com.ICM_UxAPI.GETPrecincts -->
+      <class name="com.ICM_UxAPI.GetBroadbandReadyBuildings">
+        <methods>
+          <include name="resultOffsetLastParamIs8000getBroadbandReadyBuildings"/>
+          <include name="resultOffsetParamIs1001getBroadbandReadyBuildings"/>
+          <include name="setUP"/>
+        </methods>
+      </class> <!-- com.ICM_UxAPI.GetBroadbandReadyBuildings -->
+      <class name="com.ICM_UxAPI.GETAccessPoints">
+        <methods>
+          <include name="whereParamOwnerIsDFAgetAccessPoints"/>
+          <include name="whereParamOwnerIsConductgetAccessPoints"/>
+          <include name="whereParamOwnerIsEBUgetAccessPoints"/>
+          <include name="validresultOffsetIs1001getAccessPoints"/>
+          <include name="whereParamstageIsConstructiongetAccessPoints"/>
+          <include name="setUP"/>
+          <include name="whereParamnstageIsCompletedgetAccessPoints"/>
+        </methods>
+      </class> <!-- com.ICM_UxAPI.GETAccessPoints -->
+      <class name="com.ICM_UxAPI.GetDuctBank">
+        <methods>
+          <include name="ownerIsDFA"/>
+          <include name="ownerIsEBU"/>
+          <include name="whereParamStageIsConstructiongetDuctBank"/>
+          <include name="resultOffsetLastParamIs91000getDuctBank"/>
+          <include name="ownerIsConduct"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.ICM_UxAPI.GetDuctBank -->
+      <class name="com.ICM_UxAPI.GetConnectedBuildings">
+        <methods>
+          <include name="lastParamresultOffsetIs10000getConnectedBuildings"/>
+          <include name="validresultOffsetIs1001getConnectedBuildings"/>
+          <include name="startUp"/>
+        </methods>
+      </class> <!-- com.ICM_UxAPI.GetConnectedBuildings -->
+    </classes>
+  </test> <!-- User Experience API(failed) -->
+</suite> <!-- Failed suite [DFA Infrastructure Coverage] -->

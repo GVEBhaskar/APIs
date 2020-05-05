@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [PAYG_SEACOM_WEBAPP]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="PAYG_SEACOM_WEBAPP(failed)">
+    <classes>
+      <class name="PAYG_SEACOM_GUI.GUI_Testing">
+        <methods>
+          <include name="prodType"/>
+          <include name="guiTesting"/>
+          <include name="reportDate"/>
+          <include name="validationTesting"/>
+          <include name="startUP"/>
+          <include name="custLinkUsage"/>
+          <include name="usabilityTesting"/>
+          <include name="emailAddresses" invocation-numbers="0 1 2 3 4"/>
+        </methods>
+      </class> <!-- PAYG_SEACOM_GUI.GUI_Testing -->
+    </classes>
+  </test> <!-- PAYG_SEACOM_WEBAPP(failed) -->
+</suite> <!-- Failed suite [PAYG_SEACOM_WEBAPP] -->

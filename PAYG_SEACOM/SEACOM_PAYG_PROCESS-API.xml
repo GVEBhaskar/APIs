@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="SEACOMPAYG_PROCESSAPI">
+  <test thread-count="5" parallel="tests" name="SEACOMPAYG_PROCESSAPI">
+    <packages>
+      <package name="com.SeacomPAYG_ProcessAPI"/>
+    </packages>
+  </test> <!-- SEACOMPAYG_PROCESSAPI -->
+</suite> <!-- SEACOMPAYG_PROCESSAPI -->

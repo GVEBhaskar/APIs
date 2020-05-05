@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="classes" name="SEACOMPAYG_UXAPI">
+  <test thread-count="5" parallel="classes" name="SEACOMPAYG_UXAPI">
+    <packages>
+      <package name="com.SeacomPAYG_UxAPI"/>
+    </packages>
+  </test> <!-- SEACOMPAYG_UXAPI -->
+</suite> <!-- SEACOMPAYG_UXAPI -->

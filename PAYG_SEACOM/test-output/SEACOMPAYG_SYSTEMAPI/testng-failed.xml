@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [SEACOMPAYG_SYSTEMAPI]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="SEACOMPAYG_SYSTEMAPI(failed)">
+    <classes>
+      <class name="com.SeacomPAYG_SystemAPI.FetchLinkUsage">
+        <methods>
+          <include name="startUP"/>
+          <include name="fetchLinkUsagewithinvalidOrderID"/>
+        </methods>
+      </class> <!-- com.SeacomPAYG_SystemAPI.FetchLinkUsage -->
+      <class name="com.SeacomPAYG_SystemAPI.VerifydfaCircuitID">
+        <methods>
+          <include name="verifydfaCircuitIDwithinvalidParam"/>
+          <include name="startUP"/>
+        </methods>
+      </class> <!-- com.SeacomPAYG_SystemAPI.VerifydfaCircuitID -->
+    </classes>
+  </test> <!-- SEACOMPAYG_SYSTEMAPI(failed) -->
+</suite> <!-- Failed suite [SEACOMPAYG_SYSTEMAPI] -->
